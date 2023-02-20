@@ -1,0 +1,108 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>aws-iot-device-sdk-v2</title><meta name="description" content="Documentation for aws-iot-device-sdk-v2"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">aws-iot-device-sdk-v2</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1> aws-iot-device-sdk-v2 </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#aws-iot-device-sdk-for-javascript-v2" id="aws-iot-device-sdk-for-javascript-v2" style="color: inherit; text-decoration: none;">
+  <h1>AWS IoT Device SDK for JavaScript v2</h1>
+</a>
+<p>This document provides information about the AWS IoT device SDK for Javascript V2.</p>
+<p>If you have any issues or feature requests, please file an issue or pull request.</p>
+<p>This SDK is built on the AWS Common Runtime, a collection of libraries
+(<a href="https://github.com/awslabs/aws-c-common">aws-c-common</a>,
+<a href="https://github.com/awslabs/aws-c-io">aws-c-io</a>,
+<a href="https://github.com/awslabs/aws-c-mqtt">aws-c-mqtt</a>,
+<a href="https://github.com/awslabs/aws-c-http">aws-c-http</a>,
+<a href="https://github.com/awslabs/aws-c-cal">aws-c-cal</a> ...) written in C to be
+cross-platform, high-performance, secure, and reliable. The libraries are bound
+to JS by the <a href="https://github.com/awslabs/aws-crt-nodejs">awscrt</a> package.</p>
+<p><em><strong>Jump To:</strong></em></p>
+<ul>
+<li><a href="#Installation">Installation</a></li>
+<li><a href="samples">Samples</a></li>
+<li><a href="#Getting-Help">Getting Help</a></li>
+<li><a href="./documents/FAQ.md">FAQ</a></li>
+<li><a href="#Giving-Feedback-and-Contributions">Giving Feedback and Contributions</a></li>
+</ul>
+
+<a href="#what39s-new" id="what39s-new" style="color: inherit; text-decoration: none;">
+  <h2>What&#39;s New</h2>
+</a>
+<p>The SDK now supports MQTT5.  See the <a href="https://github.com/awslabs/aws-crt-nodejs/blob/main/MQTT5-UserGuide.md">MQTT5 User Guide</a> 
+or the API Documentation for <a href="https://awslabs.github.io/aws-crt-nodejs/node/modules/mqtt5.html">NodeJS</a> or 
+the <a href="https://awslabs.github.io/aws-crt-nodejs/browser/modules/mqtt5.html">browser</a> for more information.</p>
+<p>MQTT5 samples can also be found for <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/blob/main/samples/node/pub_sub_mqtt5">NodeJS</a>
+and the <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/blob/main/samples/browser/pub_sub_mqtt5">browser</a>.</p>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+
+<a href="#minimum-requirements" id="minimum-requirements" style="color: inherit; text-decoration: none;">
+  <h3>Minimum Requirements</h3>
+</a>
+<p>For use with Node, the following are required:</p>
+<ul>
+<li>Node v10.0+<ul>
+<li>Run <code>node -v</code> to check Node version.</li>
+</ul>
+</li>
+<li>CMake 3.1+</li>
+</ul>
+<p><a href="./documents/PREREQUISITES.md">Step-by-step instructions</a></p>
+
+<a href="#build-sdk-in-existing-project-with-npm" id="build-sdk-in-existing-project-with-npm" style="color: inherit; text-decoration: none;">
+  <h3>Build SDK in existing project with NPM</h3>
+</a>
+<pre><code class="language-sh"><span class="hl-0"># Navigate to the Javascript project you want to add the</span><br/><span class="hl-0"># Javascript V2 SDK to.</span><br/><span class="hl-1">cd</span><span class="hl-2"> &lt;your javascript project here&gt;</span><br/><span class="hl-0"># Install the V2 SDK.</span><br/><span class="hl-2">npm install aws-iot-device-sdk-v2</span><br/><span class="hl-0"># Now you can use the Javascript V2 SDK in your project.</span>
+</code></pre>
+
+<a href="#build-the-v2-sdk-from-source" id="build-the-v2-sdk-from-source" style="color: inherit; text-decoration: none;">
+  <h3>Build the V2 SDK from source</h3>
+</a>
+<pre><code class="language-sh"><span class="hl-0"># Create a workspace directory to hold all the SDK files.</span><br/><span class="hl-2">mkdir sdk-workspace</span><br/><span class="hl-1">cd</span><span class="hl-2"> sdk-workspace</span><br/><br/><span class="hl-0"># Clone the repository to access the samples.</span><br/><span class="hl-2">git clone https://github.com/aws/aws-iot-device-sdk-js-v2.git</span><br/><br/><span class="hl-0"># Install the SDK.</span><br/><span class="hl-1">cd</span><span class="hl-2"> aws-iot-device-sdk-js-v2</span><br/><span class="hl-2">npm install</span><br/><br/><span class="hl-0"># Then you can run the samples following the instructions in the samples README.</span>
+</code></pre>
+
+<a href="#build-the-v2-sdk-and-crt-from-source" id="build-the-v2-sdk-and-crt-from-source" style="color: inherit; text-decoration: none;">
+  <h3>Build the V2 SDK and CRT from source</h3>
+</a>
+<pre><code class="language-sh"><span class="hl-0"># Create a workspace directory to hold all the SDK files.</span><br/><span class="hl-2">mkdir sdk-workspace</span><br/><span class="hl-1">cd</span><span class="hl-2"> sdk-workspace</span><br/><span class="hl-0"># Clone the CRT repository.</span><br/><span class="hl-0">#     (Use the latest version of the CRT here instead of &quot;v1.12.4&quot;).</span><br/><span class="hl-2">git clone --branch v1.12.4 --recurse-submodules https://github.com/awslabs/aws-crt-nodejs.git</span><br/><span class="hl-0"># Ensure all submodules are properly updated.</span><br/><span class="hl-1">cd</span><span class="hl-2"> aws-crt-nodejs</span><br/><span class="hl-2">git submodule update --init --recursive</span><br/><span class="hl-1">cd</span><span class="hl-2"> ..</span><br/><span class="hl-0"># Clone the SDK repository.</span><br/><span class="hl-2">git clone --recursive https://github.com/aws/aws-iot-device-sdk-js-v2.git</span><br/><span class="hl-0"># Ensure all submodules are properly updated.</span><br/><span class="hl-1">cd</span><span class="hl-2"> aws-iot-device-sdk-js-v2</span><br/><span class="hl-2">git submodule update --init --recursive</span><br/><span class="hl-0"># Install the CRT.</span><br/><span class="hl-2">npm install ../aws-crt-nodejs</span><br/><span class="hl-0"># Install the SDK.</span><br/><span class="hl-2">npm install</span><br/><span class="hl-0"># Then you can run the samples following the instructions in the samples README.</span>
+</code></pre>
+
+<a href="#samples" id="samples" style="color: inherit; text-decoration: none;">
+  <h2>Samples</h2>
+</a>
+<p><a href="samples/README.md">Samples README</a></p>
+
+<a href="#getting-help" id="getting-help" style="color: inherit; text-decoration: none;">
+  <h2>Getting Help</h2>
+</a>
+<p>The best way to interact with our team is through GitHub. You can <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/issues">open an issue</a> and choose from one of our templates for guidance, bug reports, or feature requests. You may also find help on community resources such as <a href="https://stackoverflow.com/questions/tagged/aws-iot">StackOverFlow</a> with the tag #aws-iot or If you have a support plan with <a href="https://aws.amazon.com/premiumsupport/">AWS Support</a>, you can also create a new support case.</p>
+<p>Please make sure to check out our resources too before opening an issue:</p>
+<ul>
+<li>Our <a href="./documents/FAQ.md">FAQ</a></li>
+<li><a href="https://aws.github.io/aws-iot-device-sdk-js-v2/">API Documentation</a></li>
+<li>Our <a href="https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html">Developer Guide</a> (<a href="https://github.com/awsdocs/aws-iot-docs">source</a>)</li>
+<li><a href="https://github.com/awslabs/aws-crt-nodejs/blob/main/MQTT5-UserGuide.md">MQTT5 User Guide</a></li>
+<li>Check for similar <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/issues">Issues</a></li>
+<li><a href="https://docs.aws.amazon.com/iot/">AWS IoT Core Documentation</a></li>
+<li><a href="https://aws.amazon.com/blogs/?awsf.blog-master-iot=category-internet-of-things%23amazon-freertos%7Ccategory-internet-of-things%23aws-greengrass%7Ccategory-internet-of-things%23aws-iot-analytics%7Ccategory-internet-of-things%23aws-iot-button%7Ccategory-internet-of-things%23aws-iot-device-defender%7Ccategory-internet-of-things%23aws-iot-device-management%7Ccategory-internet-of-things%23aws-iot-platform">Dev Blog</a></li>
+<li>Integration with AWS IoT Services such as
+<a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">Device Shadow</a>
+and <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-jobs.html">Jobs</a>
+is provided by code that been generated from a model of the service.</li>
+</ul>
+
+<a href="#giving-feedback-and-contributions" id="giving-feedback-and-contributions" style="color: inherit; text-decoration: none;">
+  <h2>Giving Feedback and Contributions</h2>
+</a>
+<p>We need your help in making this SDK great. Please participate in the community and contribute to this effort by submitting issues, participating in discussion forums and submitting pull requests through the following channels.</p>
+<ul>
+<li><a href="./documents/CONTRIBUTING.md">Contributions Guidelines</a></li>
+<li>Articulate your feature request or upvote existing ones on our <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/issues?q=is%3Aissue+is%3Aopen+label%3Afeature-request">Issues</a> page.</li>
+<li>Create discussion questions <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/discussions">here</a></li>
+<li>Find a bug open an <a href="https://github.com/aws/aws-iot-device-sdk-js-v2/issues">issue</a></li>
+</ul>
+
+<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+  <h2>License</h2>
+</a>
+<p>This library is licensed under the <a href="./documents/LICENSE">Apache 2.0 License</a>.</p>
+<p>Latest released version: v1.9.4</p>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Modules</a></li><li class=" tsd-kind-module"><a href="modules/auth.html">auth</a></li><li class=" tsd-kind-module"><a href="modules/binding.html">binding</a></li><li class=" tsd-kind-module"><a href="modules/error.html">error</a></li><li class=" tsd-kind-module"><a href="modules/event.html">event</a></li><li class=" tsd-kind-module"><a href="modules/greengrass.html">greengrass</a></li><li class=" tsd-kind-module"><a href="modules/http.html">http</a></li><li class=" tsd-kind-module"><a href="modules/identity.html">identity</a></li><li class=" tsd-kind-module"><a href="modules/io.html">io</a></li><li class=" tsd-kind-module"><a href="modules/iot.html">iot</a></li><li class=" tsd-kind-module"><a href="modules/jobs.html">jobs</a></li><li class=" tsd-kind-module"><a href="modules/mqtt.html">mqtt</a></li><li class=" tsd-kind-module"><a href="modules/mqtt5.html">mqtt5</a></li><li class=" tsd-kind-module"><a href="modules/resource_safety.html">resource_<wbr/>safety</a></li><li class=" tsd-kind-module"><a href="modules/shadow.html">shadow</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li><li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li><li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li><li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li><li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
